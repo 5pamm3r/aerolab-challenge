@@ -1,0 +1,56 @@
+@mixin buyBtn {
+  padding: 8px;
+  width: 80%;
+  background-color: white;
+  color: #3d3b3b;
+  border: none;
+  font-size: 1.4rem;
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+
+.modalProduct {
+  background: var(--primaryOpacity);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  .costContainer {
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .cost {
+      display: inline-block;
+      color: white;
+      font-size: 2.5rem;
+    }
+    .imgContainer {
+      width: 30px;
+      height: 30px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  button.buyBtn {
+    @include buyBtn;
+    cursor: pointer;
+    &:hover, :focus {
+      border-color: black;
+    }
+  }
+  span.buyBtn {
+    @include buyBtn;
+    cursor: default;
+    &:hover, :focus {
+      border-color: none;
+    }
+  }
+}

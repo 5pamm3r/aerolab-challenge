@@ -1,0 +1,33 @@
+.filterPrice {
+  display: flex;
+  align-items: stretch;
+  font-size: 2rem;
+  hr {
+    height: 30px;
+    width:2px;
+    border-width:0;
+    background-color: lightgray;
+    margin: 0 30px 0 0;
+  }
+  .sortBy {
+    color: var(--gray);
+    margin-right: 20px;
+  }
+  .buttonContainer {
+    display: flex;
+    gap: 20px;
+    .button {
+      padding: 8px 12px;
+      background-color: lightgray;
+      font-size: 1.5rem;
+      color: var(--gray);
+      border: none;
+      border-radius: 20px ;
+      cursor: pointer;
+      &.selected {
+        background-color: var(--primary);
+        color: white;
+      }
+    }
+  }
+}

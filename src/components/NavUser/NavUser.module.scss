@@ -1,0 +1,36 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  margin: 10px;
+  align-items: center;
+  width: 100%;
+  .logo {
+    margin-left: 10px;
+  }
+  .linksContainer {
+    font-size: 1.6rem;
+    a {
+      text-decoration: none;
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+  .userContainer {
+    display: flex;
+    align-items: center;
+    .user {
+      margin-right: 10px;
+    }
+    .coinContainer {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+      cursor: pointer;
+      background-color: lightgray;
+      border-radius: 20px;
+      padding: 2px 4px;
+    }
+  }
+}

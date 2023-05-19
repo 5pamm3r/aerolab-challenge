@@ -3,5 +3,4 @@ node_modules
 dist
 dist-ssr
 *.local
-src/Api
 package-lock.json

@@ -1,0 +1,18 @@
+.searchContainer {
+  .search {
+    border-radius: 20px;
+    border: 1px solid lightgray;
+    padding-left: 10px;
+    color: var(--gray);
+    height: 25px;
+    font-size: 1rem;
+    width: auto;
+    &::placeholder {
+      color: var(--gray);
+    }
+    &:focus, &:hover {
+      outline: 1px solid var(--primary);
+      border: 1px solid var(--primary);
+    }
+  }
+}

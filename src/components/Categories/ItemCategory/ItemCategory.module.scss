@@ -1,0 +1,11 @@
+.itemCategoryContainer {
+  display: inline-block;
+  button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: lightseagreen;
+    &:hover, &:focus {
+      outline: 1px solid var(--primary);
+    }
+  }
+}

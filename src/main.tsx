@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import App from "./App";
-import {Provider as UserProvider} from "./Context";
+import {Provider as UserProvider} from "./Context/userContext";
 
 import "./theme.css";
 import History from "./components/History";

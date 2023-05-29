@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 
 import {Product} from "~/types/typeProduct";
-import UserContext from "~/Context";
+import UserContext from "~/Context/userContext";
 import coin from "~/assets/icons/coin.svg";
 // import {fetchRedeem} from "~/Api/ApiRedeem";
 

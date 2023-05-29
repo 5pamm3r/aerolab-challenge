@@ -6,7 +6,12 @@ import {Product} from "~/types/typeProduct";
 import ProductItem from "~/components/Products/ProductItem";
 import NavProducts from "~/components/NavProducts";
 import ModalProduct from "~/components/Products/ModalProduct";
-import UserContext from "../Context";
+import UserContext from "../Context/userContext";
+import Search from "~/components/Search";
+import {SearchProvider} from "~/Context/searchContext";
+import Categories from "~/components/Categories";
+import ItemCategory from "~/components/Categories/ItemCategory";
+import Header from "~/components/Header";
 
 import styles from "./App.module.scss";
 
@@ -15,9 +20,6 @@ const App: React.FC = () => {
     state: {user, products, originalProducts},
     actions: {setProducts},
   } = useContext(UserContext);
-
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const productsPerPage = 9;
 
   const enoughtFunds = (cost: number) => {
     if (user) {
@@ -29,42 +31,36 @@ const App: React.FC = () => {
 
   return (
     <main className={styles.container}>
-      <header className={styles.header}>
-        <span className={styles.headerTitle}>Electronics</span>
-      </header>
-      <NavProducts
-        currentPage={currentPage}
-        products={products}
-        productsPerPage={productsPerPage}
-        setCurrentPage={setCurrentPage}
-      >
+      <Header />
+      <SearchProvider>
+        <Categories
+          render={(category: Product["category"]) => (
+            <ItemCategory key={category} category={category} />
+          )}
+        />
+        <hr className={styles.hr} />
         <FilterPrice
           originalProducts={originalProducts}
           products={products}
           setProducts={setProducts}
         />
-      </NavProducts>
-      <hr className={styles.hr} />
-      <Products
-        currentPage={currentPage}
-        products={products}
-        productsPerPage={productsPerPage}
-        render={(product: Product) => (
-          <ProductItem
-            key={product._id}
-            enoughtFunds={enoughtFunds(product.cost)}
-            product={product}
-          >
-            <ModalProduct enoughtFunds={enoughtFunds(product.cost)} product={product} />
-          </ProductItem>
-        )}
-      />
-      <NavProducts
-        currentPage={currentPage}
-        products={products}
-        productsPerPage={productsPerPage}
-        setCurrentPage={setCurrentPage}
-      />
+        <NavProducts>
+          <Search />
+        </NavProducts>
+        <Products
+          products={products}
+          render={(product: Product) => (
+            <ProductItem
+              key={product._id}
+              enoughtFunds={enoughtFunds(product.cost)}
+              product={product}
+            >
+              <ModalProduct enoughtFunds={enoughtFunds(product.cost)} product={product} />
+            </ProductItem>
+          )}
+        />
+        <NavProducts />
+      </SearchProvider>
     </main>
   );
 };

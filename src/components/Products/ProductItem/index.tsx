@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 
 import {Product} from "~/types/typeProduct";
 import coin from "~/assets/icons/coin.svg";
-import UserContext from "../../../Context";
+import UserContext from "../../../Context/userContext";
 import buyBlue from "~/assets/icons/buy-blue.svg";
 
 import style from "./ProductItem.module.scss";

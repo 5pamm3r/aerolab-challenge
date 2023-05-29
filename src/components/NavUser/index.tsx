@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import coin from "../../assets/icons/coin.svg";
 import {fetchPoints} from "~/Api/ApiPoints";
-import UserContext from "../../Context";
+import UserContext from "../../Context/userContext";
 
 import styles from "./NavUser.module.scss";
 
@@ -15,12 +15,11 @@ const NavUser: React.FC = () => {
 
   const onClick = async () => {
     try {
-      await fetchPoints();
+      // await fetchPoints(10);
     } catch (err) {
       console.error(err);
     }
   };
-  // const onRedeem = () => {};
 
   return (
     <nav className={styles.nav}>
@@ -35,7 +34,9 @@ const NavUser: React.FC = () => {
         <span className={styles.user}>{user?.name}</span>
         <div className={styles.coinContainer} onClick={onClick}>
           {user ? <span>{user.points}</span> : <span>0</span>}
-          <img alt="coin" src={coin} />
+          <div>
+            <img alt="coin" src={coin} />
+          </div>
         </div>
       </div>
     </nav>

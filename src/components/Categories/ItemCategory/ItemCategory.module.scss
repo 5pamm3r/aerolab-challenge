@@ -1,9 +1,12 @@
 .itemCategoryContainer {
   display: inline-block;
+  padding: 4px;
   button {
     background-color: transparent;
     border: 1px solid transparent;
     color: lightseagreen;
+    padding: 2px 4px;
+    border-radius: 20px;
     &:hover, &:focus {
       outline: 1px solid var(--primary);
     }

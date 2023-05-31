@@ -10,11 +10,11 @@ interface Props {
 }
 const Categories: React.FC<Props> = ({render}) => {
   const {
-    state: {products},
+    state: {originalProducts},
   } = useContext(UserContext);
   const uniqueCategories: Set<string> = new Set();
 
-  products.forEach((product: Product) => {
+  originalProducts.forEach((product: Product) => {
     if (product.category !== "PC Accesories") {
       uniqueCategories.add(product.category);
     }

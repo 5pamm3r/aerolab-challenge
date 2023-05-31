@@ -16,6 +16,7 @@ export interface Context {
   actions: {
     setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
     setHistory: React.Dispatch<React.SetStateAction<History[]>>;
+    filterProducts: (value: Product[]) => void;
   };
 }
 
@@ -32,7 +33,6 @@ const UserProvider: React.FC = ({children}) => {
   const [history, setHistory] = React.useState<History[]>([]);
   const [products, setProducts] = React.useState<Product[]>([]);
   const [originalProducts, setOriginalProducts] = React.useState<Product[]>([]);
-  // const [status, setStatus] = React.useState<"pending" | "resolved" | "rejected">("pending");
 
   React.useEffect(() => {
     (() => {
@@ -63,6 +63,10 @@ const UserProvider: React.FC = ({children}) => {
     })();
   }, []);
 
+  const filterProducts = (productsFiltered: Product[]) => {
+    setProducts(productsFiltered);
+  };
+
   if (!user || status === "pending") {
     return (
       <div>
@@ -80,6 +84,7 @@ const UserProvider: React.FC = ({children}) => {
   const actions = {
     setProducts: setProducts,
     setHistory: setHistory,
+    filterProducts: filterProducts,
   };
 
   return <UserContext.Provider value={{state, actions}}>{children}</UserContext.Provider>;

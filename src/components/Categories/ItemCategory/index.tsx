@@ -9,9 +9,20 @@ interface Props {
   category: Product["category"];
 }
 const ItemCategory: React.FC<Props> = ({category}) => {
+  const {
+    state: {originalProducts},
+    actions: {filterProducts},
+  } = useContext(UserContext);
+  const onClick = () => {
+    const productsFiltered = originalProducts.filter((e) => e.category === category);
+
+    filterProducts(productsFiltered);
+    console.log(productsFiltered);
+  };
+
   return (
     <li className={styles.itemCategoryContainer}>
-      <button>{category}</button>
+      <button onClick={onClick}>{category}</button>
     </li>
   );
 };

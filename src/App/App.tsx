@@ -30,7 +30,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <main className={styles.container}>
+    <div className={styles.container}>
       <Header />
       <SearchProvider>
         <Categories
@@ -39,14 +39,16 @@ const App: React.FC = () => {
           )}
         />
         <hr className={styles.hr} />
-        <FilterPrice
-          originalProducts={originalProducts}
-          products={products}
-          setProducts={setProducts}
-        />
-        <NavProducts>
-          <Search />
-        </NavProducts>
+        <div className={styles.desk}>
+          <FilterPrice
+            originalProducts={originalProducts}
+            products={products}
+            setProducts={setProducts}
+          />
+          <NavProducts>
+            <Search />
+          </NavProducts>
+        </div>
         <Products
           products={products}
           render={(product: Product) => (
@@ -61,7 +63,7 @@ const App: React.FC = () => {
         />
         <NavProducts />
       </SearchProvider>
-    </main>
+    </div>
   );
 };
 

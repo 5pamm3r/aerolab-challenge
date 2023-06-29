@@ -7,6 +7,10 @@
   --primary: #14caf7;
   --primaryOpacity: #14caf7a6;
   --gray: #919191;
+  --white-smoke: whitesmoke;
+  --font-sm: 1.4rem;
+  --font-md: 1.8rem;
+  --font-lg: 2rem;
 }
 html {
   font-size: 62.5%;
@@ -17,5 +21,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white-smoke);
 }
 
+
+@media (min-width: 1200px) {
+  body {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}

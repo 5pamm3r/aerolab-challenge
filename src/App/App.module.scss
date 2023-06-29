@@ -5,3 +5,10 @@
   }
 }
 
+@media (min-width: 600px) {
+  .container .desk {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}

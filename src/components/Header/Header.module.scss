@@ -8,10 +8,37 @@
   position: relative;
   .headerTitle {
     color: white;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 20%;
+    left: 10%;
+  }
+}
+
+@media (min-width: 600px) {
+  .header {
+    height: 180px;
+    .headerTitle {
+      font-size: 3rem;
+      letter-spacing: 2px;
+    }
+  }
+}
+@media (min-width: 770px) {
+  .header {
+    height: 240px;
+    .headerTitle {
+      font-size: 4.4rem ;
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .header {
+    height: 300px;
+    .headerTitle {
+      font-size: 5.4rem;
+      letter-spacing: 3px;
+    }
   }
 }

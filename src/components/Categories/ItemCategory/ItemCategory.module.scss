@@ -7,8 +7,24 @@
     color: lightseagreen;
     padding: 2px 4px;
     border-radius: 20px;
+    font-size: var(--font-sm);
+    cursor: pointer;
     &:hover, &:focus {
       outline: 1px solid var(--primary);
     }
+  }
+}
+
+@media (min-width: 600px) {
+  .itemCategoryContainer button {
+    font-size: var(--font-md);
+    padding: 4px 6px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .itemCategoryContainer button {
+    font-size: var(--font-lg);
+    padding: 6px 8px;
   }
 }

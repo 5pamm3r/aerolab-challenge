@@ -1,14 +1,14 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  font-size: 1.3rem;
-  margin: 10px;
+  font-size: var(--font-sm);
+  padding: 10px;
   align-items: center;
+  background-color: white;
   .logo {
     width: 20px;
   }
   .linksContainer {
-    font-size: 1.3rem;
     a {
       text-decoration: none;
       &:first-child {
@@ -38,5 +38,27 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: 600px) {
+  .nav {
+    font-size: var(--font-md);
+    .logo {
+      width: 30px;
+    }
+    .linksContainer a:first-child {
+      margin-right: 30px;
+    }
+    .userContainer .coinContainer div {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    font-size: var(--font-lg);
   }
 }

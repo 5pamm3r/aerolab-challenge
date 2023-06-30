@@ -1,5 +1,7 @@
-export const fetchHistory = async (id: string) => {
-  const url = "https://coding-challenge-api.aerolab.co/user/points";
+import {Product} from "~/types/typeProduct";
+
+export const fetchRedeem = async (productId: Product["_id"]) => {
+  const url = "https://coding-challenge-api.aerolab.co/redeem";
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDUyZWM3NzA1YmY4YzAwMWE5ZTA4YjMiLCJpYXQiOjE2ODMxNTYwODd9.S3kCacIJmFLFOVXJx8OxQDiGEcD-wBKM3OQ-24ZYKYE";
 
@@ -10,7 +12,7 @@ export const fetchHistory = async (id: string) => {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({id}),
+    body: JSON.stringify({productId}),
   };
 
   try {

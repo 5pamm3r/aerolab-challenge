@@ -38,17 +38,16 @@ const App: React.FC = () => {
             <ItemCategory key={category} category={category} />
           )}
         />
-        <hr className={styles.hr} />
         <div className={styles.desk}>
           <FilterPrice
             originalProducts={originalProducts}
             products={products}
             setProducts={setProducts}
           />
-          <NavProducts>
-            <Search />
-          </NavProducts>
+          <Search />
+          <NavProducts />
         </div>
+        <hr className={styles.line} />
         <Products
           products={products}
           render={(product: Product) => (

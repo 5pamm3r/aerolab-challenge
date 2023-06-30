@@ -11,6 +11,9 @@
   --font-sm: 1.4rem;
   --font-md: 1.8rem;
   --font-lg: 2rem;
+  --font-btn-sm: 1rem;
+  --font-btn-md: 1.3rem;
+  --font-btn-lg: 1.5rem;
 }
 html {
   font-size: 62.5%;

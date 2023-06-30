@@ -15,7 +15,7 @@ const NavUser: React.FC = () => {
 
   const onClick = async () => {
     try {
-      // await fetchPoints(10);
+      await fetchPoints(1000);
     } catch (err) {
       console.error(err);
     }

@@ -4,6 +4,7 @@ import {Product} from "~/types/typeProduct";
 import coin from "~/assets/icons/coin.svg";
 import UserContext from "../../../Context/userContext";
 import buyBlue from "~/assets/icons/buy-blue.svg";
+import {fetchRedeem} from "~/Api/ApiRedeem";
 
 import style from "./ProductItem.module.scss";
 
@@ -21,8 +22,7 @@ const ProductItem: React.FC<Props> = ({product, children, enoughtFunds}) => {
     setActive((prevState) => !prevState);
   };
   const onBuyBtn = async () => {
-    // await fetchRedeem(productId);
-    alert("comprado");
+    await fetchRedeem(product._id);
   };
 
   return (

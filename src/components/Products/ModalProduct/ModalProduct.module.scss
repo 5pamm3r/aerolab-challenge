@@ -4,9 +4,13 @@
   background-color: white;
   color: #3d3b3b;
   border: none;
-  font-size: 1rem;
+  font-size: var(--font-btn-sm);
   border-radius: 20px;
   border: 1px solid transparent;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-btn-md);
+  }
 }
 
 .modalProduct {
@@ -53,5 +57,11 @@
     &:hover, :focus {
       border-color: none;
     }
+  }
+}
+
+@media (min-width: 1024px) {
+  .modalProduct .costContainer .cost {
+    font-size: var(--font-md);
   }
 }

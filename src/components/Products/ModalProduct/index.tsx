@@ -3,7 +3,7 @@ import React, {useContext} from "react";
 import {Product} from "~/types/typeProduct";
 import UserContext from "~/Context/userContext";
 import coin from "~/assets/icons/coin.svg";
-// import {fetchRedeem} from "~/Api/ApiRedeem";
+import {fetchRedeem} from "~/Api/ApiRedeem";
 
 import style from "./ModalProduct.module.scss";
 
@@ -17,8 +17,7 @@ const ModalProduct: React.FC<Props> = ({product, enoughtFunds}) => {
   } = useContext(UserContext);
 
   const onBuy = async () => {
-    // await fetchRedeem(product._id);
-    alert("comprado");
+    await fetchRedeem(product._id);
   };
 
   return (

@@ -5,6 +5,7 @@ import {Product} from "~/types/typeProduct";
 import {fetchProducts} from "~/Api/ApiProducts";
 import {fetchHistory} from "~/Api/ApiHistory";
 import {History} from "~/types/typeHistory";
+import {fetchUser} from "~/Api/ApiUser";
 
 export interface Context {
   state: {
@@ -35,25 +36,13 @@ const UserProvider: React.FC = ({children}) => {
   const [originalProducts, setOriginalProducts] = React.useState<Product[]>([]);
 
   React.useEffect(() => {
-    (() => {
-      const user = {
-        id: "5a03638052fd231590d04eb5",
-        name: "John Kite",
-        points: 2000,
-        redeemHistory: [],
-        createDate: "new Date(1510171520852)",
-      };
-
-      setUser(user);
-    })();
-
     (async () => {
       try {
-        //const user = await fetchUser();
+        const user = await fetchUser();
         const newProducts = await fetchProducts();
         const newHistory = await fetchHistory();
 
-        // setUser(user);
+        setUser(user);
         setProducts(newProducts);
         setOriginalProducts(newProducts);
         setHistory(newHistory);
@@ -62,6 +51,14 @@ const UserProvider: React.FC = ({children}) => {
       }
     })();
   }, []);
+
+  //No funciona.
+  React.useEffect(() => {
+    setUser((prevState) => ({
+      ...prevState,
+      points: user.points,
+    }));
+  }, [user.points]);
 
   const filterProducts = (productsFiltered: Product[]) => {
     setProducts(productsFiltered);

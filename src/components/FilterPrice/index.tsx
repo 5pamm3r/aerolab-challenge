@@ -32,28 +32,29 @@ const FilterPrice: React.FC<Props> = ({products, setProducts, originalProducts})
   };
 
   return (
-    <div className={style.filterPrice}>
-      <hr className={style.hr} />
-      <span className={style.sortBy}>Sort By:</span>
-      <div className={style.buttonContainer}>
-        <button
-          className={`${style.button} ${selectedBtn === "most-recent" && style.selected}`}
-          onClick={onMostRecentBtn}
-        >
-          Most recent
-        </button>
-        <button
-          className={`${style.button} ${selectedBtn === "lowest-price" && style.selected}`}
-          onClick={onMinBtn}
-        >
-          Lowest price
-        </button>
-        <button
-          className={`${style.button} ${selectedBtn === "highest-price" && style.selected}`}
-          onClick={onMaxBtn}
-        >
-          Highest price
-        </button>
+    <div className={style.filterPriceContainer}>
+      <div className={style.filterPrice}>
+        <span className={style.sortBy}>Sort By:</span>
+        <div className={style.buttonContainer}>
+          <button
+            className={`${style.button} ${selectedBtn === "most-recent" && style.selected}`}
+            onClick={onMostRecentBtn}
+          >
+            Most recent
+          </button>
+          <button
+            className={`${style.button} ${selectedBtn === "lowest-price" && style.selected}`}
+            onClick={onMinBtn}
+          >
+            Lowest price
+          </button>
+          <button
+            className={`${style.button} ${selectedBtn === "highest-price" && style.selected}`}
+            onClick={onMaxBtn}
+          >
+            Highest price
+          </button>
+        </div>
       </div>
     </div>
   );

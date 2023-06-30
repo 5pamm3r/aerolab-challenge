@@ -1,14 +1,24 @@
 .container {
-  .hr {
+  .line {
     margin: 20px 10px;
     display: none;
   }
+  .desk::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
-@media (min-width: 600px) {
-  .container .desk {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+@media (min-width: 760px) {
+  .container {
+    .line {
+      display: block;
+    }
+    .desk {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }

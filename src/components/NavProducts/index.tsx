@@ -6,36 +6,33 @@ import {SearchContext} from "~/Context/searchContext";
 
 import style from "./NavProducts.module.scss";
 
-const NavProducts: React.FC = ({children}) => {
+const NavProducts: React.FC = () => {
   const {
     state: {startIndex, totalProducts, endIndex, itemsPerPage},
     actions: {setStartIndex},
   } = useContext(SearchContext);
 
   return (
-    <div className={style.navContainer}>
-      {children}
-      <div className={style.navProducts}>
-        <div className={style.navProductsContainer}>
-          <span className={style.countProducts}>
-            {endIndex} of {totalProducts} products
-          </span>
-          <div className={style.buttonContainer}>
-            <button
-              disabled={startIndex === 0}
-              onClick={() => setStartIndex(Math.max(startIndex - itemsPerPage, 0))}
-            >
-              <img alt="arrow left" src={arrowLeft} />
-            </button>
-            <button
-              disabled={endIndex >= totalProducts}
-              onClick={() =>
-                setStartIndex(Math.min(startIndex + itemsPerPage, totalProducts - itemsPerPage))
-              }
-            >
-              <img alt="arrow right" src={arrowRight} />
-            </button>
-          </div>
+    <div className={style.navProducts}>
+      <div className={style.navProductsContainer}>
+        <span className={style.countProducts}>
+          {endIndex} of {totalProducts} products
+        </span>
+        <div className={style.buttonContainer}>
+          <button
+            disabled={startIndex === 0}
+            onClick={() => setStartIndex(Math.max(startIndex - itemsPerPage, 0))}
+          >
+            <img alt="arrow left" src={arrowLeft} />
+          </button>
+          <button
+            disabled={endIndex >= totalProducts}
+            onClick={() =>
+              setStartIndex(Math.min(startIndex + itemsPerPage, totalProducts - itemsPerPage))
+            }
+          >
+            <img alt="arrow right" src={arrowRight} />
+          </button>
         </div>
       </div>
     </div>

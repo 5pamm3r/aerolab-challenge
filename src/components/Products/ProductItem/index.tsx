@@ -10,11 +10,12 @@ import style from "./ProductItem.module.scss";
 
 interface Props {
   product: Product;
-  enoughtFunds: boolean;
+  cost: Product["cost"];
 }
-const ProductItem: React.FC<Props> = ({product, children, enoughtFunds}) => {
+const ProductItem: React.FC<Props> = ({product, cost, children}) => {
   const {
     state: {user},
+    actions: {enoughtFunds},
   } = useContext(UserContext);
 
   const [active, setActive] = React.useState<boolean>(false);
@@ -35,7 +36,7 @@ const ProductItem: React.FC<Props> = ({product, children, enoughtFunds}) => {
         <span className={style.category}>{product.category}</span>
         <span className={style.name}>{product.name}</span>
       </div>
-      {enoughtFunds ? (
+      {enoughtFunds(cost) ? (
         <button className={style.enoughtFunds} onClick={onBuyBtn}>
           <img alt="buy" src={buyBlue} />
         </button>

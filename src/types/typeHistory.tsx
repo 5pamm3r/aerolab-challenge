@@ -8,4 +8,5 @@ export interface History {
   _id: string;
   createDate: string;
   img: Product["img"];
+  count: number;
 }

@@ -16,19 +16,6 @@ import Header from "~/components/Header";
 import styles from "./App.module.scss";
 
 const App: React.FC = () => {
-  const {
-    state: {user, products, originalProducts},
-    actions: {setProducts},
-  } = useContext(UserContext);
-
-  const enoughtFunds = (cost: number) => {
-    if (user) {
-      return user.points >= cost;
-    }
-
-    return false;
-  };
-
   return (
     <div className={styles.container}>
       <Header />
@@ -39,24 +26,15 @@ const App: React.FC = () => {
           )}
         />
         <div className={styles.desk}>
-          <FilterPrice
-            originalProducts={originalProducts}
-            products={products}
-            setProducts={setProducts}
-          />
+          <FilterPrice />
           <Search />
           <NavProducts />
         </div>
         <hr className={styles.line} />
         <Products
-          products={products}
           render={(product: Product) => (
-            <ProductItem
-              key={product._id}
-              enoughtFunds={enoughtFunds(product.cost)}
-              product={product}
-            >
-              <ModalProduct enoughtFunds={enoughtFunds(product.cost)} product={product} />
+            <ProductItem key={product._id} cost={product.cost} product={product}>
+              <ModalProduct cost={product.cost} product={product} />
             </ProductItem>
           )}
         />

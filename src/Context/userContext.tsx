@@ -18,6 +18,7 @@ export interface Context {
     setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
     setHistory: React.Dispatch<React.SetStateAction<History[]>>;
     filterProducts: (value: Product[]) => void;
+    enoughtFunds: (value: number) => boolean;
   };
 }
 
@@ -40,17 +41,36 @@ const UserProvider: React.FC = ({children}) => {
       try {
         const user = await fetchUser();
         const newProducts = await fetchProducts();
-        const newHistory = await fetchHistory();
+        const history = await fetchHistory();
+
+        const uniqueHistory: History[] = [];
+
+        history.forEach((item: History) => {
+          const existingItem = uniqueHistory.find((uniqueItem) => uniqueItem.name === item.name);
+
+          if (existingItem) {
+            existingItem.count++;
+          } else {
+            uniqueHistory.push({...item, count: 1});
+          }
+        });
 
         setUser(user);
         setProducts(newProducts);
         setOriginalProducts(newProducts);
-        setHistory(newHistory);
+        setHistory(uniqueHistory);
       } catch (err) {
         console.error(err);
       }
     })();
   }, []);
+  const enoughtFunds = (cost: number) => {
+    if (user) {
+      return user.points >= cost;
+    }
+
+    return false;
+  };
 
   //No funciona.
   React.useEffect(() => {
@@ -64,14 +84,6 @@ const UserProvider: React.FC = ({children}) => {
     setProducts(productsFiltered);
   };
 
-  if (!user || status === "pending") {
-    return (
-      <div>
-        <span>Cargando...</span>
-      </div>
-    );
-  }
-
   const state: Context["state"] = {
     user,
     history,
@@ -82,6 +94,7 @@ const UserProvider: React.FC = ({children}) => {
     setProducts: setProducts,
     setHistory: setHistory,
     filterProducts: filterProducts,
+    enoughtFunds: enoughtFunds,
   };
 
   return <UserContext.Provider value={{state, actions}}>{children}</UserContext.Provider>;

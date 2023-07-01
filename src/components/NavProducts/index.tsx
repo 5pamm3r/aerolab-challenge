@@ -23,7 +23,7 @@ const NavProducts: React.FC = () => {
             disabled={startIndex === 0}
             onClick={() => setStartIndex(Math.max(startIndex - itemsPerPage, 0))}
           >
-            <img alt="arrow left" src={arrowLeft} />
+            <img alt="left arrow" src={arrowLeft} />
           </button>
           <button
             disabled={endIndex >= totalProducts}
@@ -31,7 +31,7 @@ const NavProducts: React.FC = () => {
               setStartIndex(Math.min(startIndex + itemsPerPage, totalProducts - itemsPerPage))
             }
           >
-            <img alt="arrow right" src={arrowRight} />
+            <img alt="right arrow" src={arrowRight} />
           </button>
         </div>
       </div>

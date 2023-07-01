@@ -9,11 +9,12 @@ import style from "./ModalProduct.module.scss";
 
 interface Props {
   product: Product;
-  enoughtFunds: boolean;
+  cost: Product["cost"];
 }
-const ModalProduct: React.FC<Props> = ({product, enoughtFunds}) => {
+const ModalProduct: React.FC<Props> = ({product, cost}) => {
   const {
     state: {user},
+    actions: {enoughtFunds},
   } = useContext(UserContext);
 
   const onBuy = async () => {
@@ -28,7 +29,7 @@ const ModalProduct: React.FC<Props> = ({product, enoughtFunds}) => {
           <img alt="coin" src={coin} />
         </div>
       </div>
-      {enoughtFunds ? (
+      {enoughtFunds(cost) ? (
         <button className={style.buyBtn} onClick={onBuy}>
           <span>Redeem Now</span>
         </button>

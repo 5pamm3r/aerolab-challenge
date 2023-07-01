@@ -1,15 +1,15 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 
-import {Product} from "~/types/typeProduct";
+import UserContext from "../../Context/userContext";
 
 import style from "./FilterPrice.module.scss";
 
-interface Props {
-  products: Product[];
-  setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
-  originalProducts: Product[];
-}
-const FilterPrice: React.FC<Props> = ({products, setProducts, originalProducts}) => {
+const FilterPrice: React.FC = () => {
+  const {
+    state: {products, originalProducts},
+    actions: {setProducts},
+  } = useContext(UserContext);
+
   const [selectedBtn, setSelectedBtn] = React.useState<
     "most-recent" | "lowest-price" | "highest-price"
   >("most-recent");

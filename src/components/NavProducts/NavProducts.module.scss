@@ -2,6 +2,7 @@
   display: inline-block;
   .navProductsContainer {
     display: flex;
+    align-items: center;
     .countProducts {
       font-size: var(--font-sm);
       font-weight: 500;
@@ -15,8 +16,10 @@
         background-color: transparent;
         border: none;
         cursor: pointer;
+        width: 20px;
+        height: 20px;
         img {
-          width: 20px;
+          width: 100%;
         }
       }
     }
@@ -28,26 +31,30 @@
   &:nth-of-type(3) {
     display: flex;
     justify-content: right;
+    margin: 20px 0;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 800px) {
   .navProducts .navProductsContainer {
     .countProducts {
       font-size: var(--font-md);
     }
-    .buttonContainer button img {
+    .buttonContainer button {
       width: 25px;
+      height: 25px;
     }
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1040px) {
   .navProducts .navProductsContainer {
     .countProducts {
       font-size: var(--font-lg);
+      margin-right: 15px;
     }
-    .buttonContainer button img {
+    .buttonContainer button {
       width: 35px;
+      height: 35px;
     }
   }
 }

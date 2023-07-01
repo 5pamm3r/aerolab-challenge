@@ -3,8 +3,9 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  font-size: 1.3rem;
+  font-size: var(--font-sm);
   .imgContainer {
+    background-color: transparent;
     width: 80px;
     height: 80px;
     display: flex;
@@ -12,27 +13,75 @@
     align-items: center;
     img {
       width: 100%;
+      border-radius: 10px;
     }
   }
   .infoContainer {
     display: flex;
     flex-direction: column;
     align-items: start;
+    // font-size: var(--font-sm);
     .category {
       color: var(--gray);
-
     }
   }
   .priceContainer {
     display: flex;
     align-items: center;
     gap: 10px;
+    // font-size: var(--font-sm);
     .price {
       color: var(--gray);
     }
-    img {
+    .coinImgContainer {
       width: 20px;
-      padding-top: 5px;
+      height: 20px;
+      padding-top: 3px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+hr {
+  margin: 10px 10px;
+}
+
+@media (min-width: 600px) {
+  .itemContainer {
+    font-size: var(--font-md);
+    .imgContainer {
+      width: 200px;
+      height: 200px;
+    }
+    .infoContainer {
+      // font-size: var(--font-md);
+    }
+    .priceContainer {
+      // font-size: var(--font-md);
+      .coinImgContainer {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .itemContainer {
+    font-size: var(--font-lg);
+    .imgContainer {
+      width: 250px;
+      height: 250px;
+    }
+    .infoContainer {
+      // font-size: var(--font-lg);
+    }
+    .priceContainer {
+      // font-size: var(--font-lg);
+      .coinImgContainer {
+        width: 45px;
+        height: 45px;
+      }
     }
   }
 }

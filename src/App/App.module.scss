@@ -10,7 +10,7 @@
   }
 }
 
-@media (min-width: 760px) {
+@media (min-width: 770px) {
   .container {
     .line {
       display: block;
@@ -19,6 +19,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      &::after {
+        display: none;
+      }
     }
   }
 }
